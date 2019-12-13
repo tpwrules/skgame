@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://player_grid.png" type="Texture" id=1]
+[ext_resource path="res://body2.gd" type="Script" id=2]
+[ext_resource path="res://center.gd" type="Script" id=3]
+[ext_resource path="res://top right.gd" type="Script" id=4]
+[ext_resource path="res://bottom left.gd" type="Script" id=5]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="character" type="Node2D" parent="."]
+visible = false
+
+[node name="ch2" type="Node2D" parent="."]
+
+[node name="body2" type="Polygon2D" parent="ch2"]
+position = Vector2( 0, -0.848709 )
+texture = ExtResource( 1 )
+skeleton = NodePath("../Skeleton2D")
+polygon = PoolVector2Array( 0, 0, 100, 0, 200, 0, 300, 0, 400, 0, 500, 0, 600, 0, 700, 0, 800, 0, 800, 100, 800, 200, 800, 300, 800, 400, 800, 500, 800, 600, 800, 700, 800, 800, 700, 800, 600, 800, 500, 800, 400, 800, 300, 800, 200, 800, 100, 800, 0, 800, 0, 700, 0, 600, 0, 500, 0, 400, 0, 300, 0, 200, 0, 100, 100, 100, 200, 100, 300, 100, 400, 100, 500, 100, 600, 100, 700, 100, 700, 200, 600, 200, 500, 200, 400, 200, 300, 200, 200, 200, 100, 200, 100, 300, 200, 300, 300, 300, 400, 300, 500, 300, 600, 300, 700, 300, 700, 400, 600, 400, 500, 400, 400, 400, 300, 400, 200, 400, 100, 400, 100, 500, 200, 500, 300, 500, 400, 500, 500, 500, 600, 500, 700, 500, 700, 600, 600, 600, 500, 600, 400, 600, 300, 600, 200, 600, 100, 600, 100, 700, 200, 700, 300, 700, 400, 700, 500, 700, 600, 700, 700, 700 )
+uv = PoolVector2Array( 0, 0, 100, 0, 200, 0, 300, 0, 400, 0, 500, 0, 600, 0, 700, 0, 800, 0, 800, 100, 800, 200, 800, 300, 800, 400, 800, 500, 800, 600, 800, 700, 800, 800, 700, 800, 600, 800, 500, 800, 400, 800, 300, 800, 200, 800, 100, 800, 0, 800, 0, 700, 0, 600, 0, 500, 0, 400, 0, 300, 0, 200, 0, 100, 100, 100, 200, 100, 300, 100, 400, 100, 500, 100, 600, 100, 700, 100, 700, 200, 600, 200, 500, 200, 400, 200, 300, 200, 200, 200, 100, 200, 100, 300, 200, 300, 300, 300, 400, 300, 500, 300, 600, 300, 700, 300, 700, 400, 600, 400, 500, 400, 400, 400, 300, 400, 200, 400, 100, 400, 100, 500, 200, 500, 300, 500, 400, 500, 500, 500, 600, 500, 700, 500, 700, 600, 600, 600, 500, 600, 400, 600, 300, 600, 200, 600, 100, 600, 100, 700, 200, 700, 300, 700, 400, 700, 500, 700, 600, 700, 700, 700 )
+polygons = [ PoolIntArray( 0, 2, 44, 30 ), PoolIntArray( 4, 2, 44, 42 ), PoolIntArray( 4, 6, 40, 42 ), PoolIntArray( 6, 8, 10, 40 ), PoolIntArray( 30, 44, 58, 28 ), PoolIntArray( 44, 42, 56, 58 ), PoolIntArray( 42, 40, 54, 56 ), PoolIntArray( 40, 10, 12, 54 ), PoolIntArray( 28, 58, 72, 26 ), PoolIntArray( 58, 56, 70, 72 ), PoolIntArray( 56, 54, 68, 70 ), PoolIntArray( 54, 12, 14, 68 ), PoolIntArray( 26, 72, 22, 24 ), PoolIntArray( 70, 20, 22, 72 ), PoolIntArray( 70, 68, 18, 20 ), PoolIntArray( 68, 14, 16, 18 ) ]
+bones = [ NodePath("center"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("center/top right"), PoolRealArray( 0, 0, 0.16, 0.3, 0.45, 0.55, 0.69, 0.86, 1, 0.86, 0.69, 0.55, 0.45, 0.3, 0.16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.16, 0.3, 0.45, 0.55, 0.69, 0.55, 0.45, 0.3, 0.16, 0, 0, 0, 0, 0, 0, 0, 0.16, 0.3, 0.45, 0.3, 0.16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("center/bottom right"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0.89, 0, 0.89, 0.16, 0.3, 0.45, 0.55, 0.69, 0.86, 1, 0.86, 0.69, 0.55, 0.45, 0.3, 0.16, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.16, 0.3, 0.16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.16, 0.3, 0.45, 0.55, 0.45, 0.3, 0.16, 0, 0, 0, 0, 0, 0.16, 0.3, 0.45, 0.55, 0.69 ), NodePath("center/bottom left"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.89, 1, 0.89, 0.16, 0.3, 0.45, 0.55, 0.69, 0.86, 1, 0.86, 0.69, 0.55, 0.45, 0.3, 0.16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.16, 0.3, 0.45, 0.3, 0.16, 0, 0, 0, 0, 0, 0, 0, 0.16, 0.3, 0.45, 0.55, 0.69, 0.55, 0.45, 0.3, 0.16, 0, 0 ), NodePath("center/top left"), PoolRealArray( 1, 0.86, 0.69, 0.55, 0.45, 0.3, 0.16, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.16, 0.3, 0.45, 0.55, 0.69, 0.86, 0.69, 0.55, 0.45, 0.3, 0.16, 0, 0, 0, 0, 0, 0.16, 0.3, 0.45, 0.55, 0.45, 0.3, 0.16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.16, 0.3, 0.16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+internal_vertex_count = 49
+script = ExtResource( 2 )
+
+[node name="Skeleton2D" type="Skeleton2D" parent="ch2"]
+
+[node name="center" type="Bone2D" parent="ch2/Skeleton2D"]
+position = Vector2( 400.421, 401.852 )
+rest = Transform2D( 1, 0, 0, 1, 400.421, 401.852 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="top right" type="Bone2D" parent="ch2/Skeleton2D/center"]
+position = Vector2( 400.579, -401.003 )
+rest = Transform2D( 1, 0, 0, 1, 400.579, -401.852 )
+default_length = 100.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="bottom right" type="Bone2D" parent="ch2/Skeleton2D/center"]
+position = Vector2( 400.579, 398.148 )
+rest = Transform2D( 1, 0, 0, 1, 400.579, 398.148 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="bottom left" type="Bone2D" parent="ch2/Skeleton2D/center"]
+position = Vector2( -399.421, 398.148 )
+rest = Transform2D( 1, 0, 0, 1, -399.421, 398.148 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="top left" type="Bone2D" parent="ch2/Skeleton2D/center"]
+position = Vector2( -400.421, -401.852 )
+rest = Transform2D( 1, 0, 0, 1, -400.421, -401.852 )
+__meta__ = {
+"_edit_bone_": true
+}

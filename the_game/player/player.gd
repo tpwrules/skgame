@@ -23,16 +23,22 @@ onready var f_wheel = $"front_wheel"
 onready var b_wheel = $"back_wheel"
 
 onready var gfx_obj = $"graphics"
+onready var gfx_anim = $"tricks"
 
 # the graphics follow the leading wheel and rotate around it
 onready var gfx_pos = f_wheel.global_position - gfx_obj.global_position
 # the wheels are a fixed distance apart
 onready var wheel_dist = (f_wheel.global_position-b_wheel.global_position).length()
 
+var grinding = false
+
 func get_input():
 	var right = Input.is_action_pressed('ui_right')
 	var left = Input.is_action_pressed('ui_left')
 	var jump = Input.is_action_just_pressed('ui_select')
+	var grind = Input.is_action_just_pressed('g_grind')
+	var do_frontflip = Input.is_action_just_pressed("g_frontflip")
+	var do_backflip = Input.is_action_just_pressed("g_backflip")
 
 	f_vel.x = 0
 	b_vel.x = 0
@@ -46,6 +52,16 @@ func get_input():
 	if left:
 		f_vel.x -= run_speed
 		b_vel.x -= run_speed
+	if grind:
+		if grinding:
+			gfx_anim.play("grind_stop")
+		else:
+			gfx_anim.play("grind_start")
+		grinding = not grinding
+	elif do_frontflip:
+		gfx_anim.play("frontflip")
+	elif do_backflip:
+		gfx_anim.play("backflip")
 
 func _physics_process(delta):
 	get_input()

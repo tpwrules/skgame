@@ -37,7 +37,6 @@ __meta__ = {
 [node name="top right" type="Bone2D" parent="ch2/Skeleton2D/center"]
 position = Vector2( 400.579, -401.003 )
 rest = Transform2D( 1, 0, 0, 1, 400.579, -401.852 )
-default_length = 100.0
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_bone_": true

@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="the_game"
-run/main_scene="res://character_bones.tscn"
+run/main_scene="res://player/player.tscn"
 config/icon="res://icon.png"
 
 [rendering]

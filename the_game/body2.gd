@@ -9,6 +9,7 @@ var SUBDIVS = 8
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	return
 	# create polygon vertices and UVs
 	# and weights for each bone
 	var tex = self.get_texture()
@@ -56,11 +57,7 @@ func _ready():
 				(y_idx+0)*(SUBDIVS+1)+(x_idx+0),
 				(y_idx+0)*(SUBDIVS+1)+(x_idx+1),
 				(y_idx+1)*(SUBDIVS+1)+(x_idx+1),
-			])
-			polygons.append([
-				(y_idx+0)*(SUBDIVS+1)+(x_idx+0),
 				(y_idx+1)*(SUBDIVS+1)+(x_idx+0),
-				(y_idx+1)*(SUBDIVS+1)+(x_idx+1),
 			])
 	
 	# configure new vertices and UVs (which are the same)
@@ -72,6 +69,11 @@ func _ready():
 		new_bone_weights[0][x] = new_bone_weights[0][x] / 10
 	for b_idx in range(len(bone_paths)):
 		self.add_bone(bone_paths[b_idx], PoolRealArray(new_bone_weights[b_idx]))
+	
+	#print(new_points)
+	#print(polygons)
+	for b_idx in range(4, len(new_bone_weights)):
+		print(bone_paths[b_idx], new_bone_weights[b_idx])
 	
 
 

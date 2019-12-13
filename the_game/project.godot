@@ -19,11 +19,6 @@ config/name="the_game"
 run/main_scene="res://character_bones.tscn"
 config/icon="res://icon.png"
 
-[display]
-
-window/size/width=1440
-window/size/height=900
-
 [rendering]
 
 environment/default_environment="res://default_env.tres"

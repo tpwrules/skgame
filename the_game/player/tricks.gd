@@ -6,7 +6,7 @@ extends AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#self.current_animation = "idle"
+	#self.current_animation = "breake??"
 	pass # Replace with function body.
 
 var last = true

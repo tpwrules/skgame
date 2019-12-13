@@ -1,11 +1,147 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://player_grid.png" type="Texture" id=1]
 [ext_resource path="res://body2.gd" type="Script" id=2]
 [ext_resource path="res://AnimationPlayer.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
-resource_name = "sickflip"
+resource_name = "crazyflip"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("ch2/Skeleton2D/center/top left:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ch2/Skeleton2D/center/top left:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.4, 1.4, 1.6, 1.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -400.421, -401.003 ), Vector2( -399.421, -150 ), Vector2( -396.459, -600 ), Vector2( -396.459, -600 ), Vector2( -396.459, -400 ), Vector2( -396.459, -400 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ch2/Skeleton2D/center/bottom left:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ch2/Skeleton2D/center/bottom left:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25, 0.35, 1.4, 1.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -399.421, 398.148 ), Vector2( -399.421, 398.148 ), Vector2( -400.902, 267.831 ), Vector2( -399.421, 398.148 ), Vector2( -399.421, 398.148 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ch2/Skeleton2D/center/bottom right:rotation_degrees")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ch2/Skeleton2D/center/bottom right:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 400.579, 398.148 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ch2/Skeleton2D/center/top right:rotation_degrees")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.25, 0.4, 1.4, 1.6, 1.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 59.9999, 59.9999, -30.0, 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ch2/Skeleton2D/center/top right:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 1.4, 1.6, 1.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 400.579, -401.003 ), Vector2( 400.579, -300 ), Vector2( 413.904, -209.045 ), Vector2( 385.545, -79.9095 ), Vector2( 385.545, -79.9095 ), Vector2( 401.48, -400 ), Vector2( 401.48, -400 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ch2/Skeleton2D/center:rotation_degrees")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.4, 0.65, 0.9, 1.15, 1.4, 1.6, 1.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 90.0, 180.0, 270.0, 360.0, 360.0, 360.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ch2/body2:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -0.968506, -15.6213 ), Vector2( -1.77222, -29.8201 ), Vector2( 6.5083, -16.5225 ), Vector2( 20.2441, 34.0134 ), Vector2( 20.6582, 36.3757 ), Vector2( 20.6582, 38.1293 ), Vector2( 20.6582, 38.1293 ), Vector2( 19.5867, 34.9388 ), Vector2( 19.0022, 32.1624 ), Vector2( 18.5151, 28.8015 ), Vector2( 17.7844, 25.5867 ), Vector2( 5.729, 1.08594 ), Vector2( -14.9724, -12.5526 ), Vector2( -5.86377, -5.39233 ), Vector2( 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("ch2/Skeleton2D/center:position")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 400, 403.395 ) ]
+}
+
+[sub_resource type="Animation" id=2]
 length = 2.0
 step = 0.05
 tracks/0/type = "value"
@@ -135,10 +271,10 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1.3, 1.4, 1.5, 1.6, 1.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 2.48361, 3.61362 ), Vector2( 6.45684, 8.08525 ), Vector2( -0.284339, -1.49431 ), Vector2( -27.9586, -18.8794 ), Vector2( -58.4713, -21.7178 ), Vector2( -65.2125, -19.2342 ), Vector2( -65.2125, -19.2342 ), Vector2( -38.2478, -21.363 ), Vector2( -14.1215, -12.1383 ), Vector2( 0, 1.69886 ), Vector2( 0, 1.69886 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 5.41614, 4.3512 ), Vector2( 9.41003, 8.5932 ), Vector2( 0, -0.848694 ), Vector2( -41.568, -20.0898 ), Vector2( -84.3159, -27.9858 ), Vector2( -91.7129, -27.9858 ), Vector2( -97.5669, -27.1237 ), Vector2( -99.9266, -27.1237 ), Vector2( -99.9266, -27.1237 ), Vector2( -95.7517, -27.759 ), Vector2( -91.2137, -27.759 ), Vector2( -84.5884, -28.3035 ), Vector2( -51.9149, -23.5386 ), Vector2( -12.9336, -10.8323 ), Vector2( 1.40649, -0.848694 ), Vector2( 1.40649, 0.921143 ), Vector2( 0, 0 ) ]
 }
 
 [node name="Node2D" type="Node2D"]
@@ -150,7 +286,7 @@ visible = false
 position = Vector2( 430, 200 )
 
 [node name="body2" type="Polygon2D" parent="ch2"]
-position = Vector2( 0, 1.69886 )
+position = Vector2( 20.6841, 37.4002 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 skeleton = NodePath("../Skeleton2D")
@@ -167,14 +303,15 @@ scale = Vector2( 0.25, 0.25 )
 
 [node name="center" type="Bone2D" parent="ch2/Skeleton2D"]
 position = Vector2( 400, 403.395 )
-rotation = -6.28319
+rotation = 0.86708
 rest = Transform2D( 1, 0, 0, 1, 400.421, 401.852 )
 __meta__ = {
 "_edit_bone_": true
 }
 
 [node name="top right" type="Bone2D" parent="ch2/Skeleton2D/center"]
-position = Vector2( 400.579, -401.003 )
+position = Vector2( 383.303, -64.7593 )
+rotation = 1.11896
 rest = Transform2D( 1, 0, 0, 1, 400.579, -401.852 )
 __meta__ = {
 "_edit_bone_": true
@@ -188,19 +325,21 @@ __meta__ = {
 }
 
 [node name="bottom left" type="Bone2D" parent="ch2/Skeleton2D/center"]
-position = Vector2( -399.421, 398.148 )
+position = Vector2( -400.783, 278.3 )
 rest = Transform2D( 1, 0, 0, 1, -399.421, 398.148 )
 __meta__ = {
 "_edit_bone_": true
 }
 
 [node name="top left" type="Bone2D" parent="ch2/Skeleton2D/center"]
-position = Vector2( -400.421, -401.003 )
+position = Vector2( -396.299, -626.297 )
 rest = Transform2D( 1, 0, 0, 1, -400.421, -401.852 )
 __meta__ = {
 "_edit_bone_": true
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/sickflip = SubResource( 1 )
+anims/crazyflip = SubResource( 1 )
+anims/sickflip = SubResource( 2 )
 script = ExtResource( 3 )
+[connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_AnimationPlayer_animation_finished"]

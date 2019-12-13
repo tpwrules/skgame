@@ -17,7 +17,7 @@ func _process(delta):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if last:
-			self.current_animation = "crazyflip"
+			self.current_animation = "sickflip"
 	else:
-		self.current_animation = "sickflip"
+		self.current_animation = "breake??"
 	last = not last

@@ -83,7 +83,14 @@ func _physics_process(delta):
 		# we consider the deck out of balance if the distance to the collision
 		# between the two wheels is more than 5 pixels, and one of them is
 		# already near something.
-		var unlevel = abs(f_dist-b_dist) > 5 and (f_dist < 20 or b_dist < 20)
+		# look farther away so we can level ourselves on the ground
+		# (which we presume we are on if we're not moving that much)
+		var max_search = 0
+		if deck_vel.length() < 1:
+			max_search = 100
+		else:
+			max_search = 20
+		var unlevel = abs(f_dist-b_dist) > 5 and (f_dist < max_search or b_dist < max_search)
 		
 		# rotate the deck in a more level direction
 		if not unlevel:

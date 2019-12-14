@@ -42,7 +42,7 @@ func get_input():
 
 	f_vel.x = 0
 	b_vel.x = 0
-	if jump and f_wheel.is_on_floor():
+	if jump and not jumping:
 		jumping = true
 		f_vel.y = jump_speed
 		b_vel.y = jump_speed
@@ -88,9 +88,9 @@ func _physics_process(delta):
 		# but with the fixed distance.
 		var b_pos = (back_wheel_dir*wheel_dist)+f_pos
 		# but if that would collide with something...
-		if false: #b_wheel.test_move(Transform2D(0, b_pos+self.global_position), Vector2(0, 0)):
+		if b_wheel.test_move(Transform2D(0, b_pos+self.global_position), Vector2(0, 0)):
 			# try sliding it to where it needs to be
-			b_wheel.move_and_slide(back_wheel_dir.normalized()*(wheel_dist-curr_wheel_dist)*10, Vector2(0, -1))
+			b_wheel.move_and_slide(back_wheel_dir.normalized()*(wheel_dist-curr_wheel_dist)*50, Vector2(0, -1))
 		else:
 			# if not, just update the position
 			b_wheel.position = b_pos

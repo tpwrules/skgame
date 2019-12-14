@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://buildings/obey.tscn" type="PackedScene" id=2]
-[ext_resource path="res://terrain/roadunlooped.tscn" type="PackedScene" id=3]
-[ext_resource path="res://buildings/house.tscn" type="PackedScene" id=4]
-[ext_resource path="res://buildings/trashbag.tscn" type="PackedScene" id=5]
-[ext_resource path="res://buildings/lemonade_stand.tscn" type="PackedScene" id=6]
-[ext_resource path="res://buildings/trashcan.tscn" type="PackedScene" id=7]
+[ext_resource path="res://terrain/roadunlooped.tscn" type="PackedScene" id=2]
+[ext_resource path="res://buildings/house.tscn" type="PackedScene" id=3]
+[ext_resource path="res://graffitable.gd" type="Script" id=4]
+[ext_resource path="res://buildings/obey.tscn" type="PackedScene" id=5]
+[ext_resource path="res://buildings/trashbag.tscn" type="PackedScene" id=6]
+[ext_resource path="res://buildings/lemonade_stand.tscn" type="PackedScene" id=7]
+[ext_resource path="res://buildings/trashcan.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 266.667, 1483.33 )
@@ -22,74 +23,81 @@ position = Vector2( 40, 340 )
 
 [node name="not_player" type="Node2D" parent="."]
 
-[node name="obey_left" parent="not_player" instance=ExtResource( 2 )]
-position = Vector2( -540, 150 )
-scale = Vector2( 0.6, 0.6 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="not_player/obey_left"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="not_player/obey_left/StaticBody2D"]
-position = Vector2( 466.667, -700 )
-shape = SubResource( 1 )
-
 [node name="the_road" type="Node2D" parent="not_player"]
 editor/display_folded = true
 z_index = 500
 
-[node name="roadunlooped10" parent="not_player/the_road" instance=ExtResource( 3 )]
+[node name="roadunlooped10" parent="not_player/the_road" instance=ExtResource( 2 )]
 position = Vector2( -690, 560 )
 
-[node name="roadunlooped" parent="not_player/the_road" instance=ExtResource( 3 )]
+[node name="roadunlooped" parent="not_player/the_road" instance=ExtResource( 2 )]
 position = Vector2( -20, 560 )
 
-[node name="roadunlooped11" parent="not_player/the_road" instance=ExtResource( 3 )]
+[node name="roadunlooped11" parent="not_player/the_road" instance=ExtResource( 2 )]
 position = Vector2( -20, 560 )
 
-[node name="roadunlooped2" parent="not_player/the_road" instance=ExtResource( 3 )]
+[node name="roadunlooped2" parent="not_player/the_road" instance=ExtResource( 2 )]
 position = Vector2( 650, 560 )
 
-[node name="roadunlooped3" parent="not_player/the_road" instance=ExtResource( 3 )]
+[node name="roadunlooped3" parent="not_player/the_road" instance=ExtResource( 2 )]
 position = Vector2( 1320, 560 )
 
-[node name="roadunlooped4" parent="not_player/the_road" instance=ExtResource( 3 )]
+[node name="roadunlooped4" parent="not_player/the_road" instance=ExtResource( 2 )]
 position = Vector2( 1990, 560 )
 
-[node name="roadunlooped5" parent="not_player/the_road" instance=ExtResource( 3 )]
+[node name="roadunlooped5" parent="not_player/the_road" instance=ExtResource( 2 )]
 position = Vector2( 2660, 560 )
 
-[node name="roadunlooped6" parent="not_player/the_road" instance=ExtResource( 3 )]
+[node name="roadunlooped6" parent="not_player/the_road" instance=ExtResource( 2 )]
 position = Vector2( 3330, 560 )
 
-[node name="roadunlooped7" parent="not_player/the_road" instance=ExtResource( 3 )]
+[node name="roadunlooped7" parent="not_player/the_road" instance=ExtResource( 2 )]
 position = Vector2( 4000, 560 )
 
-[node name="roadunlooped8" parent="not_player/the_road" instance=ExtResource( 3 )]
+[node name="roadunlooped8" parent="not_player/the_road" instance=ExtResource( 2 )]
 position = Vector2( 4670, 560 )
 
-[node name="roadunlooped9" parent="not_player/the_road" instance=ExtResource( 3 )]
+[node name="roadunlooped9" parent="not_player/the_road" instance=ExtResource( 2 )]
 position = Vector2( 5340, 560 )
 
-[node name="house" parent="not_player" instance=ExtResource( 4 )]
+[node name="house" parent="not_player" instance=ExtResource( 3 )]
 position = Vector2( 1410, 290 )
 scale = Vector2( 1.5, 1.5 )
 
-[node name="obey_right" parent="not_player" instance=ExtResource( 2 )]
+[node name="graffitable" type="Node2D" parent="not_player"]
+script = ExtResource( 4 )
+
+[node name="obey_left" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( -540, 150 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="not_player/graffitable/obey_left"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="not_player/graffitable/obey_left/StaticBody2D"]
+position = Vector2( 466.667, -700 )
+shape = SubResource( 1 )
+
+[node name="obey_right" parent="not_player/graffitable" instance=ExtResource( 5 )]
 position = Vector2( 6229, 150 )
-scale = Vector2( -0.6, 0.6 )
+rotation = -3.14159
+scale = Vector2( 0.6, -0.6 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="not_player/obey_right"]
+[node name="StaticBody2D" type="StaticBody2D" parent="not_player/graffitable/obey_right"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="not_player/obey_right/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="not_player/graffitable/obey_right/StaticBody2D"]
 position = Vector2( 465.002, -666.667 )
 shape = SubResource( 1 )
 
-[node name="trashbag" parent="not_player" instance=ExtResource( 5 )]
+[node name="trashbag" parent="not_player/graffitable" instance=ExtResource( 6 )]
 position = Vector2( 560, 520 )
 z_as_relative = false
 
-[node name="lemonade_stand" parent="not_player" instance=ExtResource( 6 )]
+[node name="lemonade_stand" parent="not_player/graffitable" instance=ExtResource( 7 )]
 position = Vector2( 2150, 450 )
 
-[node name="trashcan" parent="not_player" instance=ExtResource( 7 )]
+[node name="trashcan" parent="not_player/graffitable" instance=ExtResource( 8 )]
 position = Vector2( 2990, 454.596 )
 z_index = 600
+
+[node name="trashcan2" parent="not_player/graffitable" instance=ExtResource( 8 )]
+position = Vector2( 3430, 454.596 )

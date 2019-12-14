@@ -631,6 +631,9 @@ __meta__ = {
 "_edit_bone_": true
 }
 
+[node name="sprayer" type="Position2D" parent="graphics"]
+position = Vector2( 39.9234, -86.3084 )
+
 [node name="tricks" type="AnimationPlayer" parent="."]
 anims/backflip = SubResource( 1 )
 anims/frontflip = SubResource( 2 )

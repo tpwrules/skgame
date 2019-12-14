@@ -142,6 +142,20 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Vector2( 400, 403.395 ) ]
 }
+tracks/11/type = "method"
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ Vector2( 0, -1000 ) ],
+"method": "_add_velocity"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "frontflip"
@@ -278,6 +292,20 @@ tracks/10/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( -105.244, -175.178 ), Vector2( -100.901, -171.466 ), Vector2( -96.6985, -167.403 ), Vector2( -102.722, -172.656 ), Vector2( -133.122, -187.086 ), Vector2( -157.218, -197.523 ), Vector2( -161.631, -198.503 ), Vector2( -164.082, -199.974 ), Vector2( -164.082, -199.974 ), Vector2( -161.141, -198.853 ), Vector2( -157.638, -197.873 ), Vector2( -139.496, -191.568 ), Vector2( -112.809, -181.902 ), Vector2( -103.563, -175.318 ), Vector2( -103.703, -174.617 ), Vector2( -105.244, -175.178 ) ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ Vector2( 1200, 0 ) ],
+"method": "_add_velocity"
+} ]
 }
 
 [sub_resource type="Animation" id=3]

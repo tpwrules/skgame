@@ -2,7 +2,7 @@
 
 extends Node2D
 
-export (int) var run_speed = 600
+export (int) var run_speed = 60
 export (int) var jump_speed = -900
 export (int) var gravity = 1200
 
@@ -29,13 +29,13 @@ func get_input():
 	var do_frontflip = Input.is_action_just_pressed("g_frontflip")
 	var do_backflip = Input.is_action_just_pressed("g_backflip")
 
-	deck_vel.x = 0
+	#deck_vel.x = 0
 	if jump and not jumping:
 		jumping = true
 		deck_vel.y = jump_speed
-	if right:
+	if right and deck_vel.x < 600:
 		deck_vel.x += run_speed
-	if left:
+	if left and deck_vel.x > -600:
 		deck_vel.x -= run_speed
 	if grind:
 		if grinding:
@@ -55,8 +55,13 @@ func _physics_process(delta):
 	deck_vel.y += gravity * delta
 	if jumping and deck_obj.is_on_floor():
 		jumping = false
-	deck_vel = deck_obj.move_and_slide(deck_vel, Vector2(0, -1))
 	
+	deck_vel = deck_obj.move_and_slide(deck_vel, Vector2(0, -1))
+	if deck_vel.x > 0:
+		deck_vel.x = max(deck_vel.x-30, 0)
+	elif deck_vel.x < 0:
+		deck_vel.x = min(deck_vel.x+30, 0)
+
 	# try and level it out so both wheels touch the ground
 	for x in range(10):
 		# the rays check if the wheels can see ground. we updated
@@ -113,3 +118,7 @@ func _physics_process(delta):
 	gfx_obj.position = deck_obj.position - gfx_pos
 	gfx_obj.rotation = deck_obj.rotation
 
+func _add_velocity(vel):
+	if deck_vel.x < 0:
+		vel.x *= -1
+	deck_vel += vel

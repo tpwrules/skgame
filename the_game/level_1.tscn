@@ -20,6 +20,7 @@ position = Vector2( 420, 20 )
 [node name="not_player" type="Node2D" parent="."]
 
 [node name="the_road" type="Node2D" parent="not_player"]
+editor/display_folded = true
 z_index = 500
 
 [node name="roadunlooped10" parent="not_player/the_road" instance=ExtResource( 2 )]
@@ -59,6 +60,7 @@ position = Vector2( 5340, 560 )
 position = Vector2( 1400, 380 )
 
 [node name="obey_left" parent="not_player" instance=ExtResource( 4 )]
+editor/display_folded = true
 position = Vector2( -540, 150 )
 scale = Vector2( 0.6, 0.6 )
 
@@ -69,6 +71,7 @@ position = Vector2( 466.667, -783.333 )
 shape = SubResource( 1 )
 
 [node name="obey_right" parent="not_player" instance=ExtResource( 4 )]
+editor/display_folded = true
 position = Vector2( 6229, 150 )
 scale = Vector2( -0.6, 0.6 )
 

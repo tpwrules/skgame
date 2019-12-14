@@ -2,8 +2,8 @@
 
 extends Node2D
 
-export (int) var run_speed = 400
-export (int) var jump_speed = -600
+export (int) var run_speed = 600
+export (int) var jump_speed = -900
 export (int) var gravity = 1200
 
 var jumping = false
@@ -88,7 +88,7 @@ func _physics_process(delta):
 		# but with the fixed distance.
 		var b_pos = (back_wheel_dir*wheel_dist)+f_pos
 		# but if that would collide with something...
-		if b_wheel.test_move(Transform2D(0, b_pos+self.global_position), Vector2(0, 0)):
+		if false: #b_wheel.test_move(Transform2D(0, b_pos+self.global_position), Vector2(0, 0)):
 			# try sliding it to where it needs to be
 			b_wheel.move_and_slide(back_wheel_dir.normalized()*(wheel_dist-curr_wheel_dist)*10, Vector2(0, -1))
 		else:

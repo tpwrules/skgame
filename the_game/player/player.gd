@@ -80,11 +80,21 @@ func _physics_process(delta):
 	gfx_obj.position = (f_pos - gfx_pos)
 	
 	# force the back wheel to a fixed distance from the front wheel.
-	# we still want it to be in the same direction relative to the front.
-	var back_wheel_dir = f_pos.direction_to(b_wheel.position)
-	# but with the fixed distance.
-	var b_pos = (back_wheel_dir*wheel_dist)+f_pos
-	b_wheel.position = b_pos
+	# how far away is it now?
+	var curr_wheel_dist = (f_pos-b_wheel.position).length()
+	if abs(curr_wheel_dist-wheel_dist) > 1: # if it's too far away
+		# try and move it in the direction it is now
+		var back_wheel_dir = f_pos.direction_to(b_wheel.position)
+		# but with the fixed distance.
+		var b_pos = (back_wheel_dir*wheel_dist)+f_pos
+		# but if that would collide with something...
+		if b_wheel.test_move(Transform2D(0, b_pos+self.global_position), Vector2(0, 0)):
+			# try sliding it to where it needs to be
+			b_wheel.move_and_slide(back_wheel_dir.normalized()*(wheel_dist-curr_wheel_dist)*10, Vector2(0, -1))
+		else:
+			# if not, just update the position
+			b_wheel.position = b_pos
+	var b_pos = b_wheel.position
 	
 	# rotate the graphics so the skateboard sits on its wheels.
 	gfx_obj.rotation = (f_pos-b_pos).angle()

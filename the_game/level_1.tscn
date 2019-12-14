@@ -15,7 +15,6 @@ __meta__ = {
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 420, 20 )
-z_as_relative = false
 
 [node name="not_player" type="Node2D" parent="."]
 

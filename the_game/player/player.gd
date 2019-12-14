@@ -22,7 +22,6 @@ var b_vel = Vector2()
 onready var f_wheel = $"front_wheel"
 onready var b_wheel = $"back_wheel"
 
-onready var view_obj = $"graphics/spr_view"
 onready var gfx_obj = $"graphics"
 onready var gfx_anim = $"tricks"
 

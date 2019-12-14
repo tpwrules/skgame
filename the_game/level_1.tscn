@@ -57,12 +57,22 @@ position = Vector2( 5340, 560 )
 [node name="house" parent="not_player" instance=ExtResource( 3 )]
 position = Vector2( 1400, 380 )
 
-[node name="obey" parent="not_player" instance=ExtResource( 4 )]
+[node name="obey_left" parent="not_player" instance=ExtResource( 4 )]
 position = Vector2( -540, 150 )
 scale = Vector2( 0.6, 0.6 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="not_player/obey"]
+[node name="StaticBody2D" type="StaticBody2D" parent="not_player/obey_left"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="not_player/obey/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="not_player/obey_left/StaticBody2D"]
+position = Vector2( 466.667, -783.333 )
+shape = SubResource( 1 )
+
+[node name="obey_right" parent="not_player" instance=ExtResource( 4 )]
+position = Vector2( 6229, 150 )
+scale = Vector2( -0.6, 0.6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="not_player/obey_right"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="not_player/obey_right/StaticBody2D"]
 position = Vector2( 466.667, -783.333 )
 shape = SubResource( 1 )

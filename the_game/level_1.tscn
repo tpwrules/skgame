@@ -9,6 +9,7 @@ __meta__ = {
 }
 
 [node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 420, 20 )
 
 [node name="the_road" type="Node2D" parent="."]
 

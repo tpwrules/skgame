@@ -3,7 +3,7 @@
 extends Node2D
 
 export (int) var run_speed = 400
-export (int) var jump_speed = -400
+export (int) var jump_speed = -600
 export (int) var gravity = 1200
 
 var jumping = false
@@ -88,3 +88,5 @@ func _physics_process(delta):
 	
 	# rotate the graphics so the skateboard sits on its wheels.
 	gfx_obj.rotation = (f_pos-b_pos).angle()
+
+	

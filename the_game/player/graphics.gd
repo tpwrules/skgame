@@ -71,5 +71,4 @@ func _ready():
 				new_path += ("/"+path.get_name(name_idx))
 			new_path += (":" + path.get_concatenated_subnames())
 			anim.track_set_path(path_idx, NodePath(new_path))
-			
-		print(anim_name)
+

@@ -649,6 +649,7 @@ rotation = 1.5708
 shape = SubResource( 5 )
 
 [node name="marker_gfx" type="Sprite" parent="front_wheel"]
+visible = false
 texture = SubResource( 7 )
 
 [node name="back_wheel" type="KinematicBody2D" parent="."]
@@ -659,6 +660,7 @@ rotation = 1.5708
 shape = SubResource( 5 )
 
 [node name="marker_gfx" type="Sprite" parent="back_wheel"]
+visible = false
 position = Vector2( -0.1091, 0.285828 )
 texture = SubResource( 7 )
 [connection signal="animation_finished" from="tricks" to="tricks" method="_on_AnimationPlayer_animation_finished"]

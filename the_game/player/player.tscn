@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/graphics.gd" type="Script" id=2]
@@ -553,17 +553,6 @@ tracks/10/keys = {
 "values": [ Vector2( 278.821, 515.007 ), Vector2( 278.821, 515.007 ), Vector2( 400, 403.395 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=5]
-radius = 9.87317
-height = 6.21851
-
-[sub_resource type="OpenSimplexNoise" id=6]
-
-[sub_resource type="NoiseTexture" id=7]
-width = 20
-height = 20
-noise = SubResource( 6 )
-
 [node name="player" type="Node2D"]
 position = Vector2( 424.702, 187.413 )
 z_index = 1000
@@ -571,7 +560,7 @@ z_as_relative = false
 script = ExtResource( 1 )
 
 [node name="graphics" type="Node2D" parent="."]
-position = Vector2( 162.535, 189.869 )
+position = Vector2( 105.231, 175.255 )
 script = ExtResource( 2 )
 
 [node name="camera" type="Camera2D" parent="graphics"]
@@ -581,7 +570,7 @@ current = true
 limit_bottom = 2610
 
 [node name="sprite" type="Polygon2D" parent="graphics"]
-position = Vector2( -162.54, -189.817 )
+position = Vector2( -105.244, -175.178 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 3 )
 skeleton = NodePath("../bones")
@@ -593,7 +582,7 @@ internal_vertex_count = 49
 script = ExtResource( 4 )
 
 [node name="bones" type="Skeleton2D" parent="graphics"]
-position = Vector2( -162.655, -190.2 )
+position = Vector2( -105.359, -175.561 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="center" type="Bone2D" parent="graphics/bones"]
@@ -641,26 +630,27 @@ anims/grind_start = SubResource( 3 )
 anims/grind_stop = SubResource( 4 )
 script = ExtResource( 5 )
 
-[node name="front_wheel" type="KinematicBody2D" parent="."]
-position = Vector2( 162.624, 190.615 )
+[node name="deck" type="KinematicBody2D" parent="."]
+position = Vector2( 105.231, 175.255 )
 
-[node name="collision" type="CollisionShape2D" parent="front_wheel"]
-rotation = 1.5708
-shape = SubResource( 5 )
+[node name="collision" type="CollisionPolygon2D" parent="deck"]
+polygon = PoolVector2Array( -60.0478, 25.4682, -70.689, 18.9753, -70.3884, 13.0234, -69.9335, -2.66791, 70.0665, -2.66791, 69.4498, 6.27252, 69.741, 14.3033, 65.3661, 22.7651, 58.6312, 25.1827, 49.8816, 23.9164, 44.5858, 18.16, 44.5737, 1.00592, -45.5262, 1.06366, -42.5538, 13.9464, -44.6145, 18.7817, -50.7162, 23.0414 )
 
-[node name="marker_gfx" type="Sprite" parent="front_wheel"]
-visible = false
-texture = SubResource( 7 )
+[node name="marker_gfx" type="Polygon2D" parent="deck"]
+polygon = PoolVector2Array( -60.0478, 25.4682, -70.689, 18.9753, -70.3884, 13.0234, -69.9335, -2.66791, 70.0665, -2.66791, 69.4498, 6.27252, 69.741, 14.3033, 65.3661, 22.7651, 58.6312, 25.1827, 49.8816, 23.9164, 44.5858, 18.16, 44.5737, 1.00592, -45.5262, 1.06366, -42.5538, 13.9464, -44.6145, 18.7817, -50.7162, 23.0414 )
 
-[node name="back_wheel" type="KinematicBody2D" parent="."]
-position = Vector2( 48.3887, 190.64 )
+[node name="middle" type="RayCast2D" parent="deck"]
+position = Vector2( 0.0969238, 0 )
+enabled = true
+cast_to = Vector2( 0, 44 )
 
-[node name="collision" type="CollisionShape2D" parent="back_wheel"]
-rotation = 1.5708
-shape = SubResource( 5 )
+[node name="front_wheel" type="RayCast2D" parent="deck"]
+position = Vector2( 57.2944, 14.631 )
+enabled = true
+cast_to = Vector2( 0, 100 )
 
-[node name="marker_gfx" type="Sprite" parent="back_wheel"]
-visible = false
-position = Vector2( -0.1091, 0.285828 )
-texture = SubResource( 7 )
+[node name="back_wheel" type="RayCast2D" parent="deck"]
+position = Vector2( -59.9764, 14.631 )
+enabled = true
+cast_to = Vector2( 0, 100 )
 [connection signal="animation_finished" from="tricks" to="tricks" method="_on_AnimationPlayer_animation_finished"]

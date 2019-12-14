@@ -8,27 +8,16 @@ export (int) var gravity = 1200
 
 var jumping = false
 
-# the skateboard has two wheels. we treat the front wheel as the leader.
-# it moves around and collides and whatever. the back wheel is mostly
-# independent, but is constrained to be a fixed distance
-# from the front wheel. this lets the skateboard tilt on slopes. note
-# that the front wheel will drag the skateboard over the edge, while the
-# back wheel will not.
-
-# the velocity of the wheels
-var f_vel = Vector2()
-var b_vel = Vector2()
-# and their game objects
-onready var f_wheel = $"front_wheel"
-onready var b_wheel = $"back_wheel"
+var deck_vel = Vector2()
+onready var deck_obj = $"deck"
+onready var f_ray = $"deck/front_wheel"
+onready var b_ray = $"deck/back_wheel"
 
 onready var gfx_obj = $"graphics"
 onready var gfx_anim = $"tricks"
 
 # the graphics follow the leading wheel and rotate around it
-onready var gfx_pos = f_wheel.position - gfx_obj.position
-# the wheels are a fixed distance apart
-onready var wheel_dist = (f_wheel.position-b_wheel.position).length()
+onready var gfx_pos = deck_obj.position - gfx_obj.position
 
 var grinding = false
 
@@ -40,18 +29,14 @@ func get_input():
 	var do_frontflip = Input.is_action_just_pressed("g_frontflip")
 	var do_backflip = Input.is_action_just_pressed("g_backflip")
 
-	f_vel.x = 0
-	b_vel.x = 0
+	deck_vel.x = 0
 	if jump and not jumping:
 		jumping = true
-		f_vel.y = jump_speed
-		b_vel.y = jump_speed
+		deck_vel.y = jump_speed
 	if right:
-		f_vel.x += run_speed
-		b_vel.x += run_speed
+		deck_vel.x += run_speed
 	if left:
-		f_vel.x -= run_speed
-		b_vel.x -= run_speed
+		deck_vel.x -= run_speed
 	if grind:
 		if grinding:
 			gfx_anim.play("grind_stop")
@@ -65,37 +50,59 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-
-	# physicate the two wheels independently
-	f_vel.y += gravity * delta
-	b_vel.y += gravity * delta
-	if jumping and f_wheel.is_on_floor():
+	
+	# move the deck according to physics
+	deck_vel.y += gravity * delta
+	if jumping and deck_obj.is_on_floor():
 		jumping = false
-	f_vel = f_wheel.move_and_slide(f_vel, Vector2(0, -1))
-	b_vel = b_wheel.move_and_slide(b_vel, Vector2(0, -1))
+	deck_vel = deck_obj.move_and_slide(deck_vel, Vector2(0, -1))
 	
-	var f_pos = f_wheel.position
-	
-	# make the graphics follow the wheels
-	gfx_obj.position = (f_pos - gfx_pos)
-	
-	# force the back wheel to a fixed distance from the front wheel.
-	# how far away is it now?
-	var curr_wheel_dist = (f_pos-b_wheel.position).length()
-	if abs(curr_wheel_dist-wheel_dist) > 1: # if it's too far away
-		# try and move it in the direction it is now
-		var back_wheel_dir = f_pos.direction_to(b_wheel.position)
-		# but with the fixed distance.
-		var b_pos = (back_wheel_dir*wheel_dist)+f_pos
-		# but if that would collide with something...
-		if false:#b_wheel.test_move(Transform2D(0, b_pos+self.global_position), Vector2(0, 0)):
-			# try sliding it to where it needs to be
-			b_wheel.move_and_slide(back_wheel_dir.normalized()*(wheel_dist-curr_wheel_dist)*50, Vector2(0, -1))
+	# try and level it out so both wheels touch the ground
+	for x in range(10):
+		# the rays check if the wheels can see ground. we updated
+		# the deck's position above (and last loop) so we need to
+		# measure again.
+		f_ray.force_raycast_update()
+		b_ray.force_raycast_update()
+		
+		# compute whether each ray hit something and, if so,
+		# how far away it was
+		var f_coll = f_ray.is_colliding()
+		var f_dist = Vector2()
+		var b_coll = b_ray.is_colliding()
+		var b_dist = Vector2()
+		if f_coll:
+			f_dist = (f_ray.global_position-f_ray.get_collision_point()).length()
 		else:
-			# if not, just update the position
-			b_wheel.position = b_pos
-	var b_pos = b_wheel.position
+			f_dist = 100 # no collision, assume it hit at the ray's max length
+		if b_coll:
+			b_dist = (b_ray.global_position-b_ray.get_collision_point()).length()
+		else:
+			b_dist = 100 # no collision, assume it hit at the ray's max length
+			
+		# we consider the deck out of balance if the distance to the collision
+		# between the two wheels is more than 5 pixels, and one of them is
+		# already near something.
+		var unlevel = abs(f_dist-b_dist) > 5 and (f_dist < 20 or b_dist < 20)
+		
+		# rotate the deck in a more level direction
+		if not unlevel:
+			break
+		elif b_dist > f_dist:
+			deck_obj.rotation_degrees -= 0.5
+		elif f_dist > b_dist:
+			deck_obj.rotation_degrees += 0.5
+		
+		# make sure it doesn't tip over completely
+		var MAX_TILT = 65
+		if abs(deck_obj.rotation_degrees) >= MAX_TILT:
+			if deck_obj.rotation_degrees > 0:
+				deck_obj.rotation_degrees = MAX_TILT
+			else:
+				deck_obj.rotation_degrees = -MAX_TILT
+			break
 	
-	# rotate the graphics so the skateboard sits on its wheels.
-	gfx_obj.rotation = (f_pos-b_pos).angle()
+	# position the graphics so the skateboard sits on its wheels.
+	gfx_obj.position = deck_obj.position - gfx_pos
+	gfx_obj.rotation = deck_obj.rotation
 

@@ -22,13 +22,14 @@ var b_vel = Vector2()
 onready var f_wheel = $"front_wheel"
 onready var b_wheel = $"back_wheel"
 
+onready var view_obj = $"graphics/spr_view"
 onready var gfx_obj = $"graphics"
 onready var gfx_anim = $"tricks"
 
 # the graphics follow the leading wheel and rotate around it
-onready var gfx_pos = f_wheel.global_position - gfx_obj.global_position
+onready var gfx_pos = f_wheel.position - gfx_obj.position
 # the wheels are a fixed distance apart
-onready var wheel_dist = (f_wheel.global_position-b_wheel.global_position).length()
+onready var wheel_dist = (f_wheel.position-b_wheel.position).length()
 
 var grinding = false
 
@@ -74,19 +75,18 @@ func _physics_process(delta):
 	f_vel = f_wheel.move_and_slide(f_vel, Vector2(0, -1))
 	b_vel = b_wheel.move_and_slide(b_vel, Vector2(0, -1))
 	
-	var f_pos = f_wheel.global_position
+	var f_pos = f_wheel.position
 	
 	# make the graphics follow the wheels
-	gfx_obj.global_position = f_pos - gfx_pos
+	gfx_obj.position = (f_pos - gfx_pos)
 	
 	# force the back wheel to a fixed distance from the front wheel.
 	# we still want it to be in the same direction relative to the front.
-	var back_wheel_dir = f_pos.direction_to(b_wheel.global_position)
+	var back_wheel_dir = f_pos.direction_to(b_wheel.position)
 	# but with the fixed distance.
 	var b_pos = (back_wheel_dir*wheel_dist)+f_pos
-	b_wheel.global_position = b_pos
+	b_wheel.position = b_pos
 	
 	# rotate the graphics so the skateboard sits on its wheels.
 	gfx_obj.rotation = (f_pos-b_pos).angle()
 
-	

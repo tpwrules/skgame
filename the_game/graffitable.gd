@@ -8,6 +8,8 @@ var g_drawer = []
 var g_sprays = []
 # and the scale of each thing on the screen
 var g_scale = []
+# and the transform of it
+var g_transform = []
 
 onready var sprayer = $"../../player/graphics/spray_pivot/sprayer"
 
@@ -24,8 +26,8 @@ func _ready():
 	var g_idx = 0
 	for graffitable in find_graffitables(self):
 		var tex = graffitable.get_texture()
-		var pos = graffitable.global_position-self.global_position
-		var size = tex.get_size()*graffitable.global_scale
+		var pos = graffitable.global_position#-self.global_position
+		var size = tex.get_size()#*graffitable.global_scale
 		
 		# we want to make a texture we can draw random garbage on.
 		# we do this with a custom viewport.
@@ -50,18 +52,20 @@ func _ready():
 		vp_instance.set_mesh(tex_mesh)
 		vp_instance.set_texture(viewport.get_texture())
 		
-		graffitable.get_parent().add_child(vp_instance)
-		graffitable.get_parent().add_child(viewport)
+		graffitable.get_parent().add_child_below_node(graffitable, vp_instance)
+		graffitable.get_parent().add_child_below_node(graffitable, viewport)
 		vp_instance.global_position = graffitable.global_position
 		vp_instance.global_scale = graffitable.global_scale
-		vp_instance.z_index = 999
-		vp_instance.z_as_relative = false
+		vp_instance.global_rotation = graffitable.global_rotation
+		vp_instance.z_index = graffitable.z_index
+		vp_instance.z_as_relative = graffitable.z_as_relative
 
 		
-		g_rect.append(Rect2(pos-size/2, size))
+		g_rect.append(Rect2(Vector2(0, 0), size))
 		g_drawer.append(drawer)
 		g_sprays.append([])
 		g_scale.append(graffitable.global_scale)
+		g_transform.append(graffitable.get_global_transform().translated(-size/2).affine_inverse())
 		g_idx += 1
 
 var sprays = []
@@ -71,17 +75,18 @@ func _physics_process(delta):
 	sprayer.set_spraying(spraying)
 	if not spraying: return
 	
-	var spray_pos = sprayer.global_position-self.global_position
+	var spray_pos = sprayer.global_position#-self.global_position
 	
 	for graffitable in range(len(g_rect)):
 		var rect = g_rect[graffitable]
-		if rect.has_point(spray_pos):
-			g_sprays[graffitable].append(spray_pos-rect.position)
+		var tex_pos = g_transform[graffitable]*spray_pos
+		if rect.has_point(tex_pos):
+			g_sprays[graffitable].append(tex_pos)
 			g_drawer[graffitable].update()
 
 func _on_draw(g_idx):
 	if len(g_sprays[g_idx]) > 0:
 		var scale = g_scale[g_idx]
 		for spray in g_sprays[g_idx]:
-			g_drawer[g_idx].draw_circle(spray/scale, 20/scale.x, Color(0, 0, 0, 1))
+			g_drawer[g_idx].draw_circle(spray, 20/scale.x, Color(0, 0, 0, 1))
 		g_sprays[g_idx] = []

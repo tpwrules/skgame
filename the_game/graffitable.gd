@@ -14,10 +14,17 @@ var g_spray_size = []
 var g_transform = []
 # original texture so we can paint the object on the first frame
 var g_tex = []
+# how many times this object was hit, so we can say it's graffitid
+var g_hits = []
 
 onready var sprayer = $"../../player/graphics/spray_pivot/sprayer"
+onready var score_label = $"../../ui/score"
 
 var SPRAY_SIZE = 10
+
+var GRAFFITI_FOR_HIT = 10 # hit 10 times to be graffitid
+
+var total_graffitid = 0
 
 # any MeshInstance2Ds under us are object graphics and should be graffitable
 func find_graffitables(node):
@@ -74,10 +81,17 @@ func _ready():
 			g_spray_size.append(SPRAY_SIZE/scale.y)
 		g_transform.append(graffitable.get_global_transform().translated(-size/2).affine_inverse())
 		g_tex.append([0, tex])
+		g_hits.append(0)
 
 		g_idx += 1
 
+var last_graffitid = -1
 func _physics_process(delta):
+	if last_graffitid != total_graffitid:
+		var new_msg = "Total objects graffiti'd: "+str(total_graffitid)+"/"+str(len(g_hits))
+		score_label.set_text(new_msg)
+		last_graffitid = total_graffitid
+
 	var spraying = Input.is_action_pressed("g_spray")
 	sprayer.set_spraying(spraying)
 	if not spraying: return
@@ -89,6 +103,7 @@ func _physics_process(delta):
 		if g_rect[graffitable].has_point(g_pos):
 			g_sprays[graffitable].append(g_pos)
 			g_drawer[graffitable].update()
+		
 
 func _g_draw(g_idx):
 	
@@ -109,4 +124,8 @@ func _g_draw(g_idx):
 		var color = Color(0, 0, 0, 1)
 		for spray in g_sprays[g_idx]:
 			drawer.draw_circle(spray, spray_size, color)
+			# measure if this has been sufficiently graffitid
+			g_hits[g_idx] += 1
+			if g_hits[g_idx] == GRAFFITI_FOR_HIT:
+				total_graffitid += 1
 		g_sprays[g_idx] = []

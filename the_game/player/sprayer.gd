@@ -15,6 +15,7 @@ onready var stamp_texs = [
 	load("res://player/spray_stamps/zhee.png"),
 	load("res://player/spray_stamps/tpw_rules.png"),
 	load("res://player/spray_stamps/maybe.png"),
+	load("res://player/spray_stamps/crawfeesh.png"),
 ]
 
 var was_spraying = false
@@ -46,7 +47,7 @@ func _physics_process(delta):
 	var spray_pos = self.get_parent().global_position
 	
 	# figure out how far the mouse is away from us
-	var mouse_dist = min((spray_pos-mouse_pos).length(), 200)
+	var mouse_dist = min((spray_pos-mouse_pos).length(), 250)
 	# and figure out in which direction
 	var mouse_dir = (mouse_pos-spray_pos).normalized()
 	self.global_position = spray_pos+(mouse_dist*mouse_dir)

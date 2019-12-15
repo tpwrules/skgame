@@ -55,6 +55,15 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 560.0 ]
 }
 
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="score" type="Label" parent="ui"]
+margin_left = 10.0
+margin_top = 10.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 1, 0.580392, 0.207843, 1 )
+text = "Score!"
+
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 40, 340 )
 
@@ -187,7 +196,7 @@ polygon = PoolVector2Array( 3.29768, -69.7677, -153.989, 58.6473, 168.635, 80.86
 position = Vector2( 2078.88, 450 )
 
 [node name="lemonade_stand2" parent="not_player/graffitable" instance=ExtResource( 8 )]
-position = Vector2( 4681.91, 267.926 )
+position = Vector2( 4761.61, 274.884 )
 
 [node name="trashcan" parent="not_player/graffitable" instance=ExtResource( 9 )]
 position = Vector2( 2480, 510 )
@@ -224,7 +233,7 @@ position = Vector2( 3875.49, 137.405 )
 rotation = -0.47473
 
 [node name="trashbag8" parent="not_player/graffitable" instance=ExtResource( 7 )]
-position = Vector2( 3768.78, 294.003 )
+position = Vector2( 3740.99, 256.409 )
 rotation = 0.741765
 
 [node name="trashbag11" parent="not_player/graffitable" instance=ExtResource( 7 )]
@@ -255,7 +264,7 @@ rotation = 0.357792
 position = Vector2( 4090, 500 )
 
 [node name="trashbag15" parent="not_player/graffitable" instance=ExtResource( 7 )]
-position = Vector2( 5200.54, 383.216 )
+position = Vector2( 5275.81, 383.216 )
 scale = Vector2( 3, 3 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="not_player/graffitable/trashbag15"]
@@ -282,7 +291,7 @@ rotation = -0.404916
 scale = Vector2( 1.5, 1.5 )
 
 [node name="house5" parent="not_player/graffitable" instance=ExtResource( 10 )]
-position = Vector2( 4572.53, 428.404 )
+position = Vector2( 4650.04, 424.678 )
 rotation = 0.0226893
 scale = Vector2( 1.5, 0.78 )
 
@@ -304,7 +313,7 @@ scale = Vector2( 0.4, 0.4 )
 polygon = PoolVector2Array( -165.318, -238.403, -133.066, -287.694, -58.8259, -298.647, 50.1004, -288.911, 169.372, -261.527, 246.046, -235.361, 260.651, -200.066 )
 
 [node name="yardsale3" type="StaticBody2D" parent="not_player/graffitable"]
-position = Vector2( 5022.37, 245.521 )
+position = Vector2( 5075.28, 252.973 )
 rotation = -0.244346
 
 [node name="graphics" type="MeshInstance2D" parent="not_player/graffitable/yardsale3"]
@@ -328,7 +337,7 @@ mesh = SubResource( 2 )
 texture = ExtResource( 12 )
 
 [node name="yardsale4" parent="not_player/graffitable" instance=ExtResource( 13 )]
-position = Vector2( 4222.95, 551.491 )
+position = Vector2( 4656.8, 551.432 )
 rotation = -0.0872665
 scale = Vector2( 0.31, 0.23 )
 

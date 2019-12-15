@@ -2,7 +2,7 @@
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/graphics.gd" type="Script" id=2]
-[ext_resource path="res://player/player_grid.png" type="Texture" id=3]
+[ext_resource path="res://player/player_purple_green.png" type="Texture" id=3]
 [ext_resource path="res://player/sprite_gen_polygons.gd" type="Script" id=4]
 [ext_resource path="res://player/sprayer.gd" type="Script" id=5]
 [ext_resource path="res://player/spraycan_on.png" type="Texture" id=6]
@@ -787,17 +787,16 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="spray_root" type="Node2D" parent="graphics"]
+[node name="spray_pivot" type="Node2D" parent="graphics"]
 position = Vector2( 94.6767, -74.6767 )
 
-[node name="sprayer" type="Position2D" parent="graphics/spray_root"]
+[node name="sprayer" type="Position2D" parent="graphics/spray_pivot"]
 position = Vector2( 27.9824, -5.71826 )
 scale = Vector2( 0.04, 0.04 )
 script = ExtResource( 5 )
 
-[node name="spraycan" type="Sprite" parent="graphics/spray_root"]
-position = Vector2( 17.3516, 6.80713 )
-scale = Vector2( 0.04, 0.04 )
+[node name="spraycan" type="Sprite" parent="graphics/spray_pivot/sprayer"]
+position = Vector2( -265.771, 313.135 )
 texture = ExtResource( 6 )
 
 [node name="tricks" type="AnimationPlayer" parent="."]

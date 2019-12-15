@@ -9,7 +9,7 @@ var g_sprays = []
 # and the scale of each thing on the screen
 var g_scale = []
 
-onready var sprayer = $"../../player/graphics/spray_root/sprayer"
+onready var sprayer = $"../../player/graphics/spray_pivot/sprayer"
 
 func find_graffitables(node):
 	var ours = []

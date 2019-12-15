@@ -1,13 +1,21 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://terrain/roadunlooped.tscn" type="PackedScene" id=2]
-[ext_resource path="res://graffitable.gd" type="Script" id=3]
-[ext_resource path="res://buildings/obey.tscn" type="PackedScene" id=4]
+[ext_resource path="res://buildings/obey.tscn" type="PackedScene" id=3]
+[ext_resource path="res://graffitable.gd" type="Script" id=4]
 [ext_resource path="res://buildings/trashbag.tscn" type="PackedScene" id=5]
 [ext_resource path="res://buildings/lemonade_stand.tscn" type="PackedScene" id=6]
 [ext_resource path="res://buildings/trashcan.tscn" type="PackedScene" id=7]
 [ext_resource path="res://buildings/house.tscn" type="PackedScene" id=8]
+[ext_resource path="res://buildings/mailbox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://buildings/yardsale.tscn" type="PackedScene" id=10]
+[ext_resource path="res://roadsigns/signpole.tscn" type="PackedScene" id=11]
+[ext_resource path="res://roadsigns/cows.tscn" type="PackedScene" id=12]
+[ext_resource path="res://roadsigns/dont.tscn" type="PackedScene" id=13]
+[ext_resource path="res://roadsigns/maze ahead.tscn" type="PackedScene" id=14]
+[ext_resource path="res://roadsigns/speed right.tscn" type="PackedScene" id=15]
+[ext_resource path="res://roadsigns/swap.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 266.667, 1483.33 )
@@ -60,33 +68,35 @@ position = Vector2( 4670, 560 )
 [node name="roadunlooped9" parent="not_player/the_road" instance=ExtResource( 2 )]
 position = Vector2( 5340, 560 )
 
-[node name="graffitable" type="Node2D" parent="not_player"]
-script = ExtResource( 3 )
+[node name="end_stoppers" type="Node2D" parent="not_player"]
+editor/display_folded = true
 
-[node name="obey_left" parent="not_player/graffitable" instance=ExtResource( 4 )]
+[node name="obey_left" parent="not_player/end_stoppers" instance=ExtResource( 3 )]
 position = Vector2( -540, 150 )
 scale = Vector2( 0.6, 0.6 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="not_player/graffitable/obey_left"]
+[node name="StaticBody2D" type="StaticBody2D" parent="not_player/end_stoppers/obey_left"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="not_player/graffitable/obey_left/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="not_player/end_stoppers/obey_left/StaticBody2D"]
 position = Vector2( 466.667, -700 )
 shape = SubResource( 1 )
 
-[node name="obey_right" parent="not_player/graffitable" instance=ExtResource( 4 )]
+[node name="obey_right" parent="not_player/end_stoppers" instance=ExtResource( 3 )]
 position = Vector2( 6229, 150 )
-rotation = -3.14159
+rotation = 3.14159
 scale = Vector2( 0.6, -0.6 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="not_player/graffitable/obey_right"]
+[node name="StaticBody2D" type="StaticBody2D" parent="not_player/end_stoppers/obey_right"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="not_player/graffitable/obey_right/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="not_player/end_stoppers/obey_right/StaticBody2D"]
 position = Vector2( 465.002, -666.667 )
 shape = SubResource( 1 )
 
+[node name="graffitable" type="Node2D" parent="not_player"]
+script = ExtResource( 4 )
+
 [node name="trashbag" parent="not_player/graffitable" instance=ExtResource( 5 )]
-position = Vector2( 560, 520 )
-z_as_relative = false
+position = Vector2( 530, 512.587 )
 
 [node name="lemonade_stand" parent="not_player/graffitable" instance=ExtResource( 6 )]
 position = Vector2( 2150, 450 )
@@ -96,8 +106,36 @@ position = Vector2( 2990, 454.596 )
 z_index = 600
 
 [node name="trashcan2" parent="not_player/graffitable" instance=ExtResource( 7 )]
-position = Vector2( 3430, 454.596 )
+position = Vector2( 4190, 454.596 )
+z_index = 600
+
+[node name="trashbag2" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 4090, 500 )
 
 [node name="house" parent="not_player/graffitable" instance=ExtResource( 8 )]
 position = Vector2( 1410, 290 )
 scale = Vector2( 1.5, 1.5 )
+
+[node name="mailbox" parent="not_player/graffitable" instance=ExtResource( 9 )]
+position = Vector2( 2690, 430 )
+
+[node name="yardsale" parent="not_player/graffitable" instance=ExtResource( 10 )]
+position = Vector2( 3220, 470 )
+
+[node name="signpole" parent="not_player/graffitable" instance=ExtResource( 11 )]
+position = Vector2( 3690, 480 )
+
+[node name="cows" parent="not_player/graffitable" instance=ExtResource( 12 )]
+position = Vector2( 3530, 330 )
+
+[node name="dont" parent="not_player/graffitable" instance=ExtResource( 13 )]
+position = Vector2( 3690, 330 )
+
+[node name="maze ahead" parent="not_player/graffitable" instance=ExtResource( 14 )]
+position = Vector2( 3830, 330 )
+
+[node name="speed right" parent="not_player/graffitable" instance=ExtResource( 15 )]
+position = Vector2( 4480, 340 )
+
+[node name="swap" parent="not_player/graffitable" instance=ExtResource( 16 )]
+position = Vector2( 4680, 340 )

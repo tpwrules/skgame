@@ -3,7 +3,7 @@
 extends Node2D
 
 export (int) var run_speed = 60
-export (int) var jump_speed = -900
+export (int) var jump_speed = -700
 export (int) var gravity = 1200
 
 var jumping = false

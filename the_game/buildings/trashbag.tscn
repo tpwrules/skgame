@@ -17,6 +17,8 @@ surfaces/0 = {
 
 [node name="trashbag" type="StaticBody2D"]
 rotation = -0.0698132
+z_index = 600
+z_as_relative = false
 
 [node name="graphics" type="MeshInstance2D" parent="."]
 position = Vector2( -7.20522, -25.5047 )

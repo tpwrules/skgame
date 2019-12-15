@@ -2,13 +2,13 @@
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/graphics.gd" type="Script" id=2]
-[ext_resource path="res://player/player_grid.png" type="Texture" id=3]
+[ext_resource path="res://player/player_purple_green.png" type="Texture" id=3]
 [ext_resource path="res://player/sprite_gen_polygons.gd" type="Script" id=4]
 [ext_resource path="res://player/tricks.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "backflip"
-length = 2.0
+length = 1.75
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("graphics/bones/center/top left:rotation_degrees")
@@ -159,7 +159,7 @@ tracks/11/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "frontflip"
-length = 2.0
+length = 1.75
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("graphics/bones/center/top left:rotation_degrees")
@@ -303,7 +303,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0.4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ Vector2( 1200, 0 ) ],
+"args": [ Vector2( 1200, 300 ) ],
 "method": "_add_velocity"
 } ]
 }
@@ -803,7 +803,7 @@ position = Vector2( 105.231, 175.255 )
 polygon = PoolVector2Array( -60.0478, 25.4682, -70.689, 18.9753, -70.3884, 13.0234, -69.9335, -2.66791, 70.0665, -2.66791, 69.4498, 6.27252, 69.741, 14.3033, 65.3661, 22.7651, 58.6312, 25.1827, 49.8816, 23.9164, 44.5858, 18.16, 44.5737, 1.00592, -45.5262, 1.06366, -42.5538, 13.9464, -44.6145, 18.7817, -50.7162, 23.0414 )
 
 [node name="marker_gfx" type="Polygon2D" parent="deck"]
-visible = false
+color = Color( 1, 1, 1, 0.721569 )
 polygon = PoolVector2Array( -60.0478, 25.4682, -70.689, 18.9753, -70.3884, 13.0234, -69.9335, -2.66791, 70.0665, -2.66791, 69.4498, 6.27252, 69.741, 14.3033, 65.3661, 22.7651, 58.6312, 25.1827, 49.8816, 23.9164, 44.5858, 18.16, 44.5737, 1.00592, -45.5262, 1.06366, -42.5538, 13.9464, -44.6145, 18.7817, -50.7162, 23.0414 )
 
 [node name="middle" type="RayCast2D" parent="deck"]

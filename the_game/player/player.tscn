@@ -770,7 +770,7 @@ script = ExtResource( 2 )
 visible = false
 position = Vector2( -62.8252, -89.3513 )
 current = true
-limit_bottom = 2610
+limit_bottom = 4610
 
 [node name="sprite" type="Polygon2D" parent="graphics"]
 position = Vector2( -105.244, -175.178 )

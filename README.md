@@ -4,6 +4,8 @@ This is our [Hardcore Punk Jam #2](https://itch.io/jam/hardcore-punk-jam-2) game
 
 Your goal is to leave your mark on the world.
 
+![you!](/gfx/boards/player_purple_green.png)
+
 ### Controls
 * WASD (or arrow keys): skate
 * Left Mouse Button or R: paint

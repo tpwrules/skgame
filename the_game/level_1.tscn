@@ -4,13 +4,13 @@
 [ext_resource path="res://terrain/roadunlooped.tscn" type="PackedScene" id=2]
 [ext_resource path="res://buildings/obey.tscn" type="PackedScene" id=3]
 [ext_resource path="res://graffitable.gd" type="Script" id=4]
-[ext_resource path="res://buildings/trashbag.tscn" type="PackedScene" id=5]
-[ext_resource path="res://buildings/lemonade_stand.tscn" type="PackedScene" id=6]
-[ext_resource path="res://buildings/trashcan.tscn" type="PackedScene" id=7]
-[ext_resource path="res://buildings/house.tscn" type="PackedScene" id=8]
-[ext_resource path="res://buildings/mailbox.tscn" type="PackedScene" id=9]
-[ext_resource path="res://buildings/yardsale.tscn" type="PackedScene" id=10]
-[ext_resource path="res://roadsigns/signpole.tscn" type="PackedScene" id=11]
+[ext_resource path="res://roadsigns/signpole.tscn" type="PackedScene" id=5]
+[ext_resource path="res://buildings/trashbag.tscn" type="PackedScene" id=6]
+[ext_resource path="res://buildings/lemonade_stand.tscn" type="PackedScene" id=7]
+[ext_resource path="res://buildings/trashcan.tscn" type="PackedScene" id=8]
+[ext_resource path="res://buildings/house.tscn" type="PackedScene" id=9]
+[ext_resource path="res://buildings/mailbox.tscn" type="PackedScene" id=10]
+[ext_resource path="res://buildings/yardsale.tscn" type="PackedScene" id=11]
 [ext_resource path="res://roadsigns/cows.tscn" type="PackedScene" id=12]
 [ext_resource path="res://roadsigns/dont.tscn" type="PackedScene" id=13]
 [ext_resource path="res://roadsigns/maze ahead.tscn" type="PackedScene" id=14]
@@ -116,50 +116,209 @@ __meta__ = {
 [node name="graffitable" type="Node2D" parent="not_player"]
 script = ExtResource( 4 )
 
-[node name="trashbag" parent="not_player/graffitable" instance=ExtResource( 5 )]
+[node name="signpole13" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 4607.99, 95.4814 )
+rotation = 2.9147
+scale = Vector2( 0.1, 0.36 )
+
+[node name="signpole14" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 4843.27, 53.7393 )
+rotation = 3.12414
+scale = Vector2( 0.1, 0.36 )
+
+[node name="signpole15" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 5093.72, -3.18359 )
+rotation = 3.35103
+scale = Vector2( 0.1, 0.36 )
+
+[node name="signpole16" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 5317.61, -10.7734 )
+rotation = 3.54302
+scale = Vector2( 0.1, 0.36 )
+
+[node name="trashbag" parent="not_player/graffitable" instance=ExtResource( 6 )]
 position = Vector2( 530, 512.587 )
 
-[node name="lemonade_stand" parent="not_player/graffitable" instance=ExtResource( 6 )]
+[node name="lemonade_stand" parent="not_player/graffitable" instance=ExtResource( 7 )]
 position = Vector2( 2150, 450 )
 
-[node name="trashcan" parent="not_player/graffitable" instance=ExtResource( 7 )]
-position = Vector2( 2990, 454.596 )
+[node name="trashcan" parent="not_player/graffitable" instance=ExtResource( 8 )]
+position = Vector2( 2579.03, 447.387 )
 z_index = 600
 
-[node name="trashcan2" parent="not_player/graffitable" instance=ExtResource( 7 )]
-position = Vector2( 4190, 454.596 )
+[node name="trashcan2" parent="not_player/graffitable" instance=ExtResource( 8 )]
+position = Vector2( 5731.57, 454.598 )
 z_index = 600
 
-[node name="trashbag2" parent="not_player/graffitable" instance=ExtResource( 5 )]
+[node name="trashbag4" parent="not_player/graffitable" instance=ExtResource( 6 )]
+position = Vector2( 3963.86, 357.039 )
+
+[node name="trashbag3" parent="not_player/graffitable" instance=ExtResource( 6 )]
+position = Vector2( 4031.13, 415.905 )
+rotation = 0.741765
+
+[node name="trashbag12" parent="not_player/graffitable" instance=ExtResource( 6 )]
+position = Vector2( 3845.63, 44.9004 )
+rotation = 2.33001
+
+[node name="trashbag13" parent="not_player/graffitable" instance=ExtResource( 6 )]
+position = Vector2( 3739.63, 153.552 )
+rotation = 1.77151
+
+[node name="trashbag14" parent="not_player/graffitable" instance=ExtResource( 6 )]
+position = Vector2( 3670.73, 217.152 )
+rotation = -0.1309
+
+[node name="trashbag5" parent="not_player/graffitable" instance=ExtResource( 6 )]
+position = Vector2( 3875.49, 137.405 )
+rotation = -0.47473
+
+[node name="trashbag8" parent="not_player/graffitable" instance=ExtResource( 6 )]
+position = Vector2( 3768.78, 294.003 )
+rotation = 0.741765
+
+[node name="trashbag11" parent="not_player/graffitable" instance=ExtResource( 6 )]
+position = Vector2( 3906.5, 219.803 )
+rotation = 0.706858
+
+[node name="trashbag10" parent="not_player/graffitable" instance=ExtResource( 6 )]
+position = Vector2( 3800.5, 172.102 )
+rotation = 0.18326
+
+[node name="trashbag9" parent="not_player/graffitable" instance=ExtResource( 6 )]
+position = Vector2( 3670.65, 262.203 )
+rotation = 0.18326
+
+[node name="trashbag7" parent="not_player/graffitable" instance=ExtResource( 6 )]
+position = Vector2( 3872.13, 286.053 )
+rotation = -0.514872
+
+[node name="trashbag6" parent="not_player/graffitable" instance=ExtResource( 6 )]
+position = Vector2( 3874.78, 362.904 )
+rotation = 0.357792
+
+[node name="trashbag2" parent="not_player/graffitable" instance=ExtResource( 6 )]
 position = Vector2( 4090, 500 )
 
-[node name="house" parent="not_player/graffitable" instance=ExtResource( 8 )]
+[node name="trashbag15" parent="not_player/graffitable" instance=ExtResource( 6 )]
+position = Vector2( 5200.54, 383.216 )
+scale = Vector2( 3, 3 )
+
+[node name="house" parent="not_player/graffitable" instance=ExtResource( 9 )]
 position = Vector2( 1410, 290 )
 scale = Vector2( 1.5, 1.5 )
 
-[node name="mailbox" parent="not_player/graffitable" instance=ExtResource( 9 )]
+[node name="house3" parent="not_player/graffitable" instance=ExtResource( 9 )]
+position = Vector2( 3500.92, -16.2061 )
+rotation = -0.202458
+scale = Vector2( 1.5, 1.5 )
+
+[node name="house4" parent="not_player/graffitable" instance=ExtResource( 9 )]
+position = Vector2( 3921.39, -398.837 )
+rotation = -0.411898
+scale = Vector2( 1.5, 1.5 )
+
+[node name="house2" parent="not_player/graffitable" instance=ExtResource( 9 )]
+position = Vector2( 2987.81, 236.146 )
+rotation = -0.404916
+scale = Vector2( 1.5, 1.5 )
+
+[node name="house5" parent="not_player/graffitable" instance=ExtResource( 9 )]
+position = Vector2( 4572.53, 428.404 )
+rotation = 0.0226893
+scale = Vector2( 1.5, 0.78 )
+
+[node name="mailbox" parent="not_player/graffitable" instance=ExtResource( 10 )]
 position = Vector2( 2690, 430 )
 
-[node name="yardsale" parent="not_player/graffitable" instance=ExtResource( 10 )]
-position = Vector2( 3220, 470 )
+[node name="yardsale" parent="not_player/graffitable" instance=ExtResource( 11 )]
+position = Vector2( 3292.1, -308.687 )
 
-[node name="signpole" parent="not_player/graffitable" instance=ExtResource( 11 )]
-position = Vector2( 3690, 480 )
+[node name="yardsale2" parent="not_player/graffitable" instance=ExtResource( 11 )]
+position = Vector2( 4096.69, 325.394 )
+rotation = 0.575959
+scale = Vector2( 0.21, 0.25 )
+
+[node name="yardsale4" parent="not_player/graffitable" instance=ExtResource( 11 )]
+position = Vector2( 4222.95, 551.491 )
+rotation = -0.0872665
+scale = Vector2( 0.31, 0.23 )
+
+[node name="yardsale3" parent="not_player/graffitable" instance=ExtResource( 11 )]
+position = Vector2( 5018.7, 231.431 )
+rotation = -0.331613
+scale = Vector2( 0.62, 0.48 )
+
+[node name="signpole" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 3753.32, -157.207 )
+
+[node name="signpole2" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 3692.91, -230.17 )
+rotation = 1.90415
+scale = Vector2( 0.05, 0.05 )
+
+[node name="signpole3" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 3800.38, -170.313 )
+rotation = 7.23614
+scale = Vector2( 0.05, 0.05 )
+
+[node name="signpole4" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 4365.07, 371.539 )
+rotation = -0.619592
+scale = Vector2( 0.1, 0.05 )
 
 [node name="cows" parent="not_player/graffitable" instance=ExtResource( 12 )]
-position = Vector2( 3530, 330 )
+position = Vector2( 3628.69, -259.594 )
+rotation = 5.33198
 
 [node name="dont" parent="not_player/graffitable" instance=ExtResource( 13 )]
-position = Vector2( 3690, 330 )
+position = Vector2( 3753.32, -307.207 )
+
+[node name="signpole5" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 4412.1, 530.962 )
+
+[node name="signpole7" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 4426.49, 229.047 )
+rotation = 0.314159
+
+[node name="signpole8" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 4491.56, -318.917 )
+rotation = 1.37881
+
+[node name="signpole9" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 4703.89, -373.714 )
+rotation = 1.41372
+
+[node name="signpole10" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 4929.93, -407.962 )
+rotation = 1.50098
+
+[node name="signpole11" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 5145.69, -428.511 )
+rotation = 1.6057
+
+[node name="signpole12" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 5368.29, -418.236 )
+rotation = 1.79769
+
+[node name="signpole6" parent="not_player/graffitable" instance=ExtResource( 5 )]
+position = Vector2( 4397.75, 293.099 )
 
 [node name="maze ahead" parent="not_player/graffitable" instance=ExtResource( 14 )]
-position = Vector2( 3830, 330 )
+position = Vector2( 3839.28, -212.419 )
+rotation = 0.275762
 
 [node name="speed right" parent="not_player/graffitable" instance=ExtResource( 15 )]
-position = Vector2( 4480, 340 )
+position = Vector2( 4290.13, 290.773 )
+rotation = -0.760963
+
+[node name="speed right2" parent="not_player/graffitable" instance=ExtResource( 15 )]
+position = Vector2( 4369.65, 129.456 )
+rotation = -0.272271
 
 [node name="swap" parent="not_player/graffitable" instance=ExtResource( 16 )]
-position = Vector2( 4680, 340 )
+position = Vector2( 4461.63, 114.225 )
+rotation = -1.71042
 
 [node name="sweet_bg_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )

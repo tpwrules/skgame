@@ -46,16 +46,11 @@ func _physics_process(delta):
 	var spray_pos = self.get_parent().global_position
 	
 	# figure out how far the mouse is away from us
-	var mouse_dist = (spray_pos-mouse_pos).length()
+	var mouse_dist = min((spray_pos-mouse_pos).length(), 200)
 	# and figure out in which direction
 	var mouse_dir = (mouse_pos-spray_pos).normalized()
-	if mouse_dist > 250:
-		self.global_position = spray_pos+spray_rel_pos
-		self.global_rotation = 0
-	else:
-		# now point us at that spot
-		self.global_position = spray_pos+(mouse_dist*mouse_dir)
-		self.global_rotation = mouse_dir.angle()
+	self.global_position = spray_pos+(mouse_dist*mouse_dir)
+	self.global_rotation = mouse_dir.angle()
 		
 	# should we create a stamp here?
 	if not Input.is_action_just_pressed("g_stamp"): return

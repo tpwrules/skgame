@@ -322,11 +322,17 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0.4 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.35, 0.4, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
-"args": [ Vector2( 1200, 300 ) ],
+"args": [ 400 ],
+"method": "_set_gravity"
+}, {
+"args": [ Vector2( 1500, -400 ) ],
 "method": "_add_velocity"
+}, {
+"args": [ 1200 ],
+"method": "_set_gravity"
 } ]
 }
 tracks/12/type = "method"
@@ -850,6 +856,7 @@ position = Vector2( 105.231, 175.255 )
 polygon = PoolVector2Array( -60.0478, 25.4682, -70.689, 18.9753, -70.3884, 13.0234, -69.9335, -2.66791, 70.0665, -2.66791, 69.4498, 6.27252, 69.741, 14.3033, 65.3661, 22.7651, 58.6312, 25.1827, 49.8816, 23.9164, 44.5858, 18.16, 44.5737, 1.00592, -45.5262, 1.06366, -42.5538, 13.9464, -44.6145, 18.7817, -50.7162, 23.0414 )
 
 [node name="marker_gfx" type="Polygon2D" parent="deck"]
+visible = false
 color = Color( 1, 1, 1, 0.721569 )
 polygon = PoolVector2Array( -60.0478, 25.4682, -70.689, 18.9753, -70.3884, 13.0234, -69.9335, -2.66791, 70.0665, -2.66791, 69.4498, 6.27252, 69.741, 14.3033, 65.3661, 22.7651, 58.6312, 25.1827, 49.8816, 23.9164, 44.5858, 18.16, 44.5737, 1.00592, -45.5262, 1.06366, -42.5538, 13.9464, -44.6145, 18.7817, -50.7162, 23.0414 )
 

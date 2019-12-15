@@ -17,7 +17,7 @@ var g_tex = []
 
 onready var sprayer = $"../../player/graphics/spray_pivot/sprayer"
 
-var SPRAY_SIZE = 20
+var SPRAY_SIZE = 10
 
 # any MeshInstance2Ds under us are object graphics and should be graffitable
 func find_graffitables(node):
@@ -69,9 +69,9 @@ func _ready():
 		g_sprays.append([])
 		var scale = graffitable.global_scale
 		if scale.x > scale.y:
-			g_spray_size.append(20/scale.x)
+			g_spray_size.append(SPRAY_SIZE/scale.x)
 		else:
-			g_spray_size.append(20/scale.y)
+			g_spray_size.append(SPRAY_SIZE/scale.y)
 		g_transform.append(graffitable.get_global_transform().translated(-size/2).affine_inverse())
 		g_tex.append([0, tex])
 

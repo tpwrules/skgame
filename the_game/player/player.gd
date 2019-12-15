@@ -122,3 +122,7 @@ func _add_velocity(vel):
 	if deck_vel.x < 0:
 		vel.x *= -1
 	deck_vel += vel
+
+func _set_gravity(val):
+	return
+	gravity = val

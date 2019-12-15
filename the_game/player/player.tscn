@@ -726,6 +726,8 @@ z_index = 1000
 z_as_relative = false
 script = ExtResource( 1 )
 
+[node name="stamp_objects" type="Node2D" parent="."]
+
 [node name="graphics" type="Node2D" parent="."]
 position = Vector2( 105.231, 175.255 )
 script = ExtResource( 2 )

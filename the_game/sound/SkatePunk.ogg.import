@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SkatePunk.ogg-8e923263e239428d990ad24442ee7ce3.oggstr"
+
+[deps]
+
+source_file="res://sound/SkatePunk.ogg"
+dest_files=[ "res://.import/SkatePunk.ogg-8e923263e239428d990ad24442ee7ce3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

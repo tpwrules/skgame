@@ -1,11 +1,18 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/graphics.gd" type="Script" id=2]
 [ext_resource path="res://player/player_purple_green.png" type="Texture" id=3]
 [ext_resource path="res://player/sprite_gen_polygons.gd" type="Script" id=4]
 [ext_resource path="res://player/sprayer.gd" type="Script" id=5]
-[ext_resource path="res://player/tricks.gd" type="Script" id=6]
+[ext_resource path="res://player/spraycan_on.png" type="Texture" id=6]
+[ext_resource path="res://player/tricks.gd" type="Script" id=7]
+[ext_resource path="res://player/riff_manager.gd" type="Script" id=8]
+[ext_resource path="res://sound/riffs1.ogg" type="AudioStream" id=9]
+[ext_resource path="res://sound/riffs2.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sound/riffs3.ogg" type="AudioStream" id=11]
+[ext_resource path="res://sound/riffs4.ogg" type="AudioStream" id=12]
+[ext_resource path="res://sound/riffs5.ogg" type="AudioStream" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "backflip"
@@ -157,6 +164,20 @@ tracks/11/keys = {
 "method": "_add_velocity"
 } ]
 }
+tracks/12/type = "method"
+tracks/12/path = NodePath("riff_manager")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_riff"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "frontflip"
@@ -306,6 +327,20 @@ tracks/11/keys = {
 "values": [ {
 "args": [ Vector2( 1200, 300 ) ],
 "method": "_add_velocity"
+} ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath("riff_manager")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_riff"
 } ]
 }
 
@@ -789,15 +824,16 @@ __meta__ = {
 }
 
 [node name="spray_pivot" type="Node2D" parent="graphics"]
-position = Vector2( 94.6767, -74.6767 )
+position = Vector2( -5.15778, -74.6767 )
 
 [node name="sprayer" type="Position2D" parent="graphics/spray_pivot"]
-position = Vector2( 27.9824, -5.71826 )
+position = Vector2( 120.169, -2.31445 )
 scale = Vector2( 0.04, 0.04 )
 script = ExtResource( 5 )
 
 [node name="spraycan" type="Sprite" parent="graphics/spray_pivot/sprayer"]
 position = Vector2( -265.771, 313.135 )
+texture = ExtResource( 6 )
 
 [node name="tricks" type="AnimationPlayer" parent="."]
 anims/backflip = SubResource( 1 )
@@ -805,7 +841,7 @@ anims/frontflip = SubResource( 2 )
 anims/grind_start = SubResource( 3 )
 anims/grind_stop = SubResource( 4 )
 anims/idle = SubResource( 5 )
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="deck" type="KinematicBody2D" parent="."]
 position = Vector2( 105.231, 175.255 )
@@ -831,4 +867,22 @@ cast_to = Vector2( 0, 100 )
 position = Vector2( -59.9764, 14.631 )
 enabled = true
 cast_to = Vector2( 0, 100 )
+
+[node name="riff_manager" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="r1" type="AudioStreamPlayer" parent="riff_manager"]
+stream = ExtResource( 9 )
+
+[node name="r2" type="AudioStreamPlayer" parent="riff_manager"]
+stream = ExtResource( 10 )
+
+[node name="r3" type="AudioStreamPlayer" parent="riff_manager"]
+stream = ExtResource( 11 )
+
+[node name="r4" type="AudioStreamPlayer" parent="riff_manager"]
+stream = ExtResource( 12 )
+
+[node name="r5" type="AudioStreamPlayer" parent="riff_manager"]
+stream = ExtResource( 13 )
 [connection signal="animation_finished" from="tricks" to="tricks" method="_on_AnimationPlayer_animation_finished"]

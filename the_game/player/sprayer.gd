@@ -24,6 +24,8 @@ onready var stamp_objects = $"../../../stamp_objects"
 onready var rng = RandomNumberGenerator.new()
 
 func _ready():
+	rng.randomize()
+	rng.seed += 420 # different stream from others
 	# make sure correct spray state is shown
 	was_spraying = true
 	self.set_spraying(false)
@@ -40,19 +42,20 @@ func _physics_process(delta):
 	# aim the spraycan at the mouse
 	var mouse_pos = get_global_mouse_position()
 	
-	var spray_pos = self.get_parent().global_position+spray_rel_pos
+	var spray_pos = self.get_parent().global_position
 	
 	# figure out how far the mouse is away from us
 	var mouse_dist = (spray_pos-mouse_pos).length()
 	# and figure out in which direction
 	var mouse_dir = (mouse_pos-spray_pos).normalized()
-	if mouse_dist > 200:
-		mouse_dist = 0.01
-		mouse_dir = Vector2(1, 0)
-	# now point us at that spot
-	self.global_position = spray_pos+(mouse_dist*mouse_dir)
-	self.global_rotation = mouse_dir.angle()
-	
+	if mouse_dist > 250:
+		self.global_position = spray_pos+spray_rel_pos
+		self.global_rotation = 0
+	else:
+		# now point us at that spot
+		self.global_position = spray_pos+(mouse_dist*mouse_dir)
+		self.global_rotation = mouse_dir.angle()
+		
 	# should we create a stamp here?
 	if not Input.is_action_just_pressed("g_stamp"): return
 	

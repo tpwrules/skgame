@@ -6,7 +6,7 @@ extends Position2D
 
 onready var spraycan = $"spraycan"
 onready var spray_rel_pos = self.position # us relative to our parent
-onready var tex_on = load("player/spraycan_on.png")
+onready var tex_on = load("res://player/spraycan_on.png")
 onready var tex_off = load("res://player/spraycan_off.png")
 
 # list of available stamp textures

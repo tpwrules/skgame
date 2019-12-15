@@ -828,11 +828,11 @@ position = Vector2( -5.15778, -74.6767 )
 
 [node name="sprayer" type="Position2D" parent="graphics/spray_pivot"]
 position = Vector2( 120.169, -2.31445 )
-scale = Vector2( 0.04, 0.04 )
+scale = Vector2( 0.4, 0.4 )
 script = ExtResource( 5 )
 
 [node name="spraycan" type="Sprite" parent="graphics/spray_pivot/sprayer"]
-position = Vector2( -265.771, 313.135 )
+position = Vector2( -41.6866, 33.7388 )
 texture = ExtResource( 6 )
 
 [node name="tricks" type="AnimationPlayer" parent="."]
@@ -879,10 +879,13 @@ stream = ExtResource( 10 )
 
 [node name="r3" type="AudioStreamPlayer" parent="riff_manager"]
 stream = ExtResource( 11 )
+volume_db = -10.0
 
 [node name="r4" type="AudioStreamPlayer" parent="riff_manager"]
 stream = ExtResource( 12 )
+volume_db = -10.0
 
 [node name="r5" type="AudioStreamPlayer" parent="riff_manager"]
 stream = ExtResource( 13 )
+volume_db = -10.0
 [connection signal="animation_finished" from="tricks" to="tricks" method="_on_AnimationPlayer_animation_finished"]

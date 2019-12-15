@@ -9,7 +9,7 @@ var g_sprays = []
 # and the scale of each thing on the screen
 var g_scale = []
 
-onready var sprayer = $"../../player/graphics/sprayer"
+onready var sprayer = $"../../player/graphics/spray_root/sprayer"
 
 func find_graffitables(node):
 	var ours = []
@@ -68,6 +68,7 @@ var sprays = []
 
 func _physics_process(delta):
 	var spraying = Input.is_action_pressed("g_spray")
+	sprayer.set_spraying(spraying)
 	if not spraying: return
 	
 	var spray_pos = sprayer.global_position-self.global_position

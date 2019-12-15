@@ -15,9 +15,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="the_game"
+config/name="Skaint"
 run/main_scene="res://level_1.tscn"
-config/icon="res://icon.png"
+config/icon="res://player/player_purple_green.png"
 
 [input]
 

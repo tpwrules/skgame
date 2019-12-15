@@ -1,12 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/graphics.gd" type="Script" id=2]
 [ext_resource path="res://player/player_purple_green.png" type="Texture" id=3]
 [ext_resource path="res://player/sprite_gen_polygons.gd" type="Script" id=4]
 [ext_resource path="res://player/sprayer.gd" type="Script" id=5]
-[ext_resource path="res://player/spraycan_on.png" type="Texture" id=6]
-[ext_resource path="res://player/tricks.gd" type="Script" id=7]
+[ext_resource path="res://player/tricks.gd" type="Script" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "backflip"
@@ -799,7 +798,6 @@ script = ExtResource( 5 )
 
 [node name="spraycan" type="Sprite" parent="graphics/spray_pivot/sprayer"]
 position = Vector2( -265.771, 313.135 )
-texture = ExtResource( 6 )
 
 [node name="tricks" type="AnimationPlayer" parent="."]
 anims/backflip = SubResource( 1 )
@@ -807,7 +805,7 @@ anims/frontflip = SubResource( 2 )
 anims/grind_start = SubResource( 3 )
 anims/grind_stop = SubResource( 4 )
 anims/idle = SubResource( 5 )
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 
 [node name="deck" type="KinematicBody2D" parent="."]
 position = Vector2( 105.231, 175.255 )

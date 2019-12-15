@@ -6,49 +6,27 @@ extends Position2D
 
 onready var spraycan = $"spraycan"
 onready var spray_rel_pos = self.position # us relative to our parent
-var tex_on = false
-var tex_off = false
+onready var tex_on = load("player/spraycan_on.png")
+onready var tex_off = load("res://player/spraycan_off.png")
+
+# list of available stamp textures
+onready var stamp_texs = [
+	load("res://player/spray_stamps/coebalt.png"),
+	load("res://player/spray_stamps/zhee.png"),
+	load("res://player/spray_stamps/tpw_rules.png"),
+]
 
 var was_spraying = false
 
-# list of available stamp textures
-var stamp_texs = []
 # node where we stuff all the stamps that got put out
 onready var stamp_objects = $"../../../stamp_objects"
 # randomly select stamp to draw
 onready var rng = RandomNumberGenerator.new()
 
 func _ready():
-	# load the on state and off state textures so we can swap them as necessary
-	tex_on = ImageTexture.new()
-	var img_on = Image.new()
-	img_on.load("res://player/spraycan_on.png")
-	tex_on.create_from_image(img_on, 0) # mipmaps make it look blurry
-	
-	tex_off = ImageTexture.new()
-	var img_off = Image.new()
-	img_off.load("res://player/spraycan_off.png")
-	tex_off.create_from_image(img_off, 0)
-	
+	# make sure correct spray state is shown
 	was_spraying = true
-	self.set_spraying(false) # make sure correct state is shown
-	
-	# load all the stamps so we can draw a random one when asked
-	var stamp_dir = Directory.new()
-	stamp_dir.open("res://player/spray_stamps")
-	stamp_dir.list_dir_begin(true, true)
-	while true:
-		var fname = stamp_dir.get_next()
-		if fname == "": break
-		if not fname.ends_with(".png"): continue
-		# fname is a png that we want to texturize as above
-		var tex = ImageTexture.new()
-		var img = Image.new()
-		if img.load("res://player/spray_stamps/"+fname) == 0:
-			# make sure image loaded successfully
-			tex.create_from_image(img, 0)
-			stamp_texs.append(tex)
-	stamp_dir.list_dir_end()
+	self.set_spraying(false)
 
 func set_spraying(spraying):
 	if spraying != was_spraying:

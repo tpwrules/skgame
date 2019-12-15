@@ -14,6 +14,7 @@ onready var stamp_texs = [
 	load("res://player/spray_stamps/coebalt.png"),
 	load("res://player/spray_stamps/zhee.png"),
 	load("res://player/spray_stamps/tpw_rules.png"),
+	load("res://player/spray_stamps/maybe.png"),
 ]
 
 var was_spraying = false
@@ -70,4 +71,4 @@ func _physics_process(delta):
 	var tex_size = stamp_tex.get_size()
 	var scale = tex_size.x/STAMP_WIDTH
 	stamp_spr.scale = Vector2(1/scale, 1/scale)
-	stamp_spr.global_position = self.global_position - (tex_size/scale)/2
+	stamp_spr.global_position = self.global_position
